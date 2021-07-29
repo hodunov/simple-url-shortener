@@ -10,10 +10,7 @@
         <h4 class="card-title mb-3 text-primary text-uppercase">Enter a FULL URL to make a Simple Short URL</h4>
 
         <form>
-          <div class="form-floating mb-3">
-            <input type="full-url" class="form-control" id="floatingURLInput" placeholder="https://example.com/">
-            {#          <label for="floatingURLInput">Full url address</label>#}
-          </div>
+          <div class="form-floating mb-3">{{ form.full_url }}</div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
