@@ -1,1 +1,30 @@
 {% extends "base.html" %}
+
+{% block content %}
+  <body>
+  <div class="container p-5" style="margin-top: 200px">
+
+    <div class="card mx-3 mt-n5 shadow-lg"
+         style="border-radius: 10px; border-left:8px #007bff solid; border-right: none; border-top:none; border-bottom:none">
+      <div class="card-body">
+        <h4 class="card-title mb-3 text-primary text-uppercase">Enter a FULL URL to make a Simple Short URL</h4>
+
+        <form>
+          <div class="form-floating mb-3">
+            <input type="full-url" class="form-control" id="floatingURLInput" placeholder="https://example.com/">
+            {#          <label for="floatingURLInput">Full url address</label>#}
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+          crossorigin="anonymous"></script>
+
+  </body>
+
+{% endblock content %}
