@@ -8,15 +8,27 @@
          style="border-radius: 10px; border-left:8px #007bff solid; border-right: none; border-top:none; border-bottom:none">
       <div class="card-body">
         <h4 class="card-title mb-3 text-primary text-uppercase">Enter a FULL URL to make a Simple Short URL</h4>
-
-        <form>
+        <form action="" method="POST">
+          {% csrf_token %}
           <div class="form-floating mb-3">{{ form.full_url }}</div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>
   </div>
-
+  {% if errors %}
+    <div class="alert alert-danger mt-4" role="alert">
+      <p>{{ errors }}</p>
+    </div>
+  {% endif %}
+  {% if new_url %}
+    <div class="mx-auto text-center mt-5">
+      <h2 class="text-danger">Your shortened Url</h2>
+      <p>You can copy the Link below and share it with your friends</p>
+      <p class="">{{ new_url }}</p>
+      <p><span class="text-danger">Previous URL:</span> {{ full_url }}</p>
+    </div>
+  {% endif %}
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
