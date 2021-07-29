@@ -1,5 +1,7 @@
 from django.db import models
 
+from short_url.utils import create_shortened_url
+
 
 class Shortener(models.Model):
     """
@@ -20,3 +22,12 @@ class Shortener(models.Model):
 
     def __str__(self):
         return f"{self.full_url} to {self.short_url}"
+
+    def save(self, *args, **kwargs):
+
+        # If the short url wasn't specified
+        if not self.short_url:
+            # We pass the model instance that is being saved
+            self.short_url = create_shortened_url(self)
+
+        super().save(*args, **kwargs)
